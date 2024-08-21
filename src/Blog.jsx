@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import blogs from './blogs.json'
 
 const Blog = () => {
@@ -6,21 +7,15 @@ const Blog = () => {
   const [name, setName] = useState(blogs[1].name)
   const [title, setTitle] = useState(blogs[1].title)
   const [content, setContent] = useState(blogs[1].content)
-
   const [isEditing, setIsEditing] = useState(false)
 
-  const handleSave = () =>
-  {
-    blogs[1].name = name
-    blogs[1].title = title
-    blogs[1].content = content 
-    
-    // Simulate saving to the server or log it in the console
-    console.log('Updated blog:', blogs[1])
-    alert('Blog updated successfully!')
+  const handleSave = async () => {
+    const updatedPost = { name, title, content }
+      // Ensure that the ID matches the one you want to edit
+      await axios.put(`http://localhost:5000/edit-post/${blogs[1].id}`, updatedPost)
+      alert('Blog updated successfully!')
 
     setIsEditing(false)
-    
   }
 
     const firstBlogs = blogs[1]
