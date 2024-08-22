@@ -3,6 +3,8 @@ import axios from 'axios'
 import blogs from './blogs.json'
 
 const Blog = () => {
+
+  
     
   const [name, setName] = useState(blogs[1].name)
   const [title, setTitle] = useState(blogs[1].title)
