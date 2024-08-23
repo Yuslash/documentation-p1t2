@@ -1,31 +1,51 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import DropdownMenu from './DropdownMenu'
 import blogs from '../blogs.json'
 
 const EditBlog = () => {
-
-  const [name, setName] = useState(blogs[1].name)
-  const [title, setTitle] = useState(blogs[1].title)
-  const [content, setContent] = useState(blogs[1].content)
+  
+  const [blogsData, setBlogs] = useState(blogs)
+  const [selectedName, setSelectedName] = useState(blogs[0].name)
+  const [name, setName] = useState("")
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
   const [isEditing, setIsEditing] = useState(false)
+  
+  const selectedBlog = blogsData.find(blog => blog.name === selectedName)
+
+  useEffect(()=>
+  {
+    if (selectedBlog) {
+      setName(selectedBlog.name)
+      setTitle(selectedBlog.title)
+      setContent(selectedBlog.content)
+    }
+
+
+  }, [selectedName, blogsData])
 
   const handleSave = async () => {
     const updatedPost = { name, title, content }
     // Ensure that the ID matches the one you want to edit
-    await axios.put(`http://localhost:5000/edit-post/${blogs[1].name}`, updatedPost)
+    await axios.put(`http://localhost:5000/edit-post/${selectedName}`, updatedPost)
     alert('Blog updated successfully!')
 
     setIsEditing(false)
   }
 
-  const firstBlogs = blogs[1]
-
   return (
-    <div>
-
-      <h1>Edit Blog 2 (blogs[1])</h1>
+    <div className='container'>
+      <div className='h-screen absolute w-72 bg-cyan-500 top-0 left-0'>
+        <DropdownMenu
+          blogs={blogsData}
+          selectedName={selectedName}
+          onSelect={setSelectedName}
+        />
+      </div>
       {isEditing ? (
-        <div className='mt-5 flex flex-col gap-5 bg-cyan-400 p-5'>
+        <>
+        <div className='main-edit flex flex-col gap-5 px-36'>
           <input
             className='p-2'
             type='text'
@@ -50,20 +70,19 @@ const EditBlog = () => {
           <button className=' bg-violet-500 text-white px-4 py-2 rounded' onClick={handleSave}>
             save
           </button>
-
-
         </div>
+      </>
       ) : (
-        <div className="mt-5" >
-          <h1 className='text-5xl font-bold'>{firstBlogs.name}</h1>
-          <h1 className='text-3xl font-bold mt-2'>{firstBlogs.title}</h1>
-          <p className='mt-2'>{firstBlogs.content}</p>
+          <div className="display-text p-16">
+          <h1 className='text-5xl font-bold'>{selectedBlog.name}</h1>
+          <h1 className='text-3xl font-bold mt-2'>{selectedBlog.title}</h1>
+          <p className='content mt-2'>{selectedBlog.content}</p>
         </div>
       )}
 
       <button
         onClick={() => setIsEditing(!isEditing)}
-        className='mt-3 bg-blue-500 text-white px-4 py-2 rounded'
+        className='edit-button absolute bg-blue-500 text-white px-4 py-2 rounded'
       >
         {isEditing ? 'cancel' : 'Edit'}
       </button>
