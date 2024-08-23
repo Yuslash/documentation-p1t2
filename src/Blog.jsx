@@ -22,7 +22,6 @@ const Blog = () => {
 
   return (
     <div>
-
         <h1>Edit Blog 2 (blogs[1])</h1>
          {isEditing ? (
         <div className='mt-5 flex flex-col gap-5 bg-cyan-400 p-5'>

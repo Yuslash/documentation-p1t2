@@ -34,6 +34,26 @@ const EditBlog = () => {
     setIsEditing(false)
   }
 
+  useEffect(() => {
+    const textarea = document.querySelector('.paragraph')
+
+    const handleKeyUp = (e) => {
+      textarea.style.height = 'auto' // Reset the height
+      let sHeight = e.target.scrollHeight // Get scrollHeight
+      textarea.style.height = `${sHeight}px` // Set new height
+    }
+
+    if (textarea) {
+      textarea.addEventListener('keyup', handleKeyUp) // Add the keyup event listener
+    }
+
+    return () => {
+      if (textarea) {
+        textarea.removeEventListener('keyup', handleKeyUp) // Clean up event listener
+      }
+    }
+  }, [isEditing])
+
   return (
     <div className='container'>
       <div className='h-screen absolute w-72 bg-cyan-500 top-0 left-0'>
@@ -44,7 +64,7 @@ const EditBlog = () => {
         />
       </div>
       {isEditing ? (
-        <>
+        <div className='main'>
         <div className='main-edit flex flex-col gap-5 px-36'>
           <input
             className='p-2'
@@ -60,8 +80,8 @@ const EditBlog = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <input
-            className='p-2'
+            <textarea
+            className='paragraph p-2'
             type='text'
             placeholder='Edit the Previous Content'
             value={content}
@@ -71,7 +91,7 @@ const EditBlog = () => {
             save
           </button>
         </div>
-      </>
+      </div>
       ) : (
           <div className="display-text p-16">
           <h1 className='text-5xl font-bold'>{selectedBlog.name}</h1>

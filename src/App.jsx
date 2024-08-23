@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import BlogList from './Components/BlogList'
 import EditBlog from './Components/EditBlog'
 import DropdownMenu from './Components/DropdownMenu'
+import Sammple from './Components/Sample.jsx'
 import Input from './Input'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <Router>  
       <div>
         <Routes>
+          <Route path='sample' element={<Sammple />} />
           <Route path='/' element={<BlogList />} />
           <Route path='/edit' element={<EditBlog />} />
           <Route path='/add' element={<Input />} />
