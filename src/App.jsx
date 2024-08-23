@@ -1,15 +1,22 @@
 import './App.css'
-import Blog from './Blog'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import BlogList from './Components/BlogList'
+import EditBlog from './Components/EditBlog'
 import Input from './Input'
 
 function App() {
 
 
   return (
-    <>
-      <Blog />
-      <Input />
-    </>
+    <Router>  
+      <div>
+        <Routes>
+          <Route path='/' element={<BlogList />} />
+          <Route path='/edit' element={<EditBlog />} />
+          <Route path='/add' element={<Input />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
