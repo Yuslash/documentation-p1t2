@@ -12,7 +12,7 @@ const Blog = () => {
   const handleSave = async () => {
     const updatedPost = { name, title, content }
       // Ensure that the ID matches the one you want to edit
-      await axios.put(`http://localhost:5000/edit-post/${blogs[1].id}`, updatedPost)
+      await axios.put(`http://localhost:5000/edit-post/${blogs[1].name}`, updatedPost)
       alert('Blog updated successfully!')
 
     setIsEditing(false)
