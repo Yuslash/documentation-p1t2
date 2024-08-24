@@ -1,20 +1,11 @@
-import React, {useState} from 'react'
-import blogs from '../blogs.json'
+import React from 'react'
+import TopNav from './Sample/TopNav'
 
 const Sample = () => {
-    
-    const [blogsData, setBlogs] = useState(blogs)
-    const [selectedName, setSelectedName] = useState(blogs[0].name)
-    const selectedBlog = blogsData.find(blog => blog.name === selectedName)
-
   return (
-<>
-    <div>
-          <h1>{selectedBlog.name}</h1>
-      <h1>{selectedBlog.title}</h1>
-          <h1>{selectedBlog.content}</h1>
+    <div className='sample w-screen h-screen absolute top-0 left-0 p-3'>
+        <TopNav />
     </div>
-</>
   )
 }
 
