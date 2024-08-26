@@ -4,7 +4,7 @@ import BodyNav from './Sample/BodyNav'
 
 const Sample = () => {
   return (
-    <div className='sample w-screen h-screen flex flex-col absolute top-0 left-0 p-3'>
+    <div className='sample w-full h-full flex flex-col absolute top-0 left-0 p-3'>
         <TopNav />
         <BodyNav />
     </div>
