@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import RichEdit from './RichEdit'
 import blogs from '../../blogs.json'
 import DropdownMenu from '../DropdownMenu'
@@ -50,6 +51,19 @@ const InnerBody = () => {
     }
   }, [])
 
+  /**
+   * for the save or update to the blogs.json
+   */
+  const handleSave = async () =>
+    {
+      
+      const updatePost = {name,title,content}
+      
+      //Ensuer that the id matches the one you want to edit
+      await axios.put(`http://localhost:5000/edit-post/${selectedName}`, updatePost)
+      alert(`Blog Updated Successfully!`)
+    }
+
   return (
     <div className='inner-body'>
 
@@ -77,6 +91,7 @@ const InnerBody = () => {
 
 
       </div>
+      <button className='m-6' onClick={handleSave}>button</button>
     </div>
   )
 }
