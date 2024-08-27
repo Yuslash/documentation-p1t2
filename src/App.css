@@ -31,6 +31,8 @@ body{
   word-wrap: break-word;
   white-space: normal;
   resize: none;
+  background-color: transparent;
+  color: white;
   /* prevents manual resizing if that's desired */
 }
 
