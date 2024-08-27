@@ -74,7 +74,7 @@ const InnerBody = () => {
       />
     
       <RichEdit />
-      <div className='flex flex-col'>
+      <div className='flex flex-col mt-5'>
 
         <input 
          className=' p-2 bg-transparent text-white text-4xl'
@@ -91,7 +91,7 @@ const InnerBody = () => {
 
 
       </div>
-      <button className='m-6' onClick={handleSave}>button</button>
+      <button className='save-button m-6' onClick={handleSave}>Save Edit</button>
     </div>
   )
 }
