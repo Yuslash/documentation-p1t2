@@ -108,7 +108,7 @@ body{
   height: 100%;
   padding: 10px;
   gap: 10px;
-  margin-top: 5px;
+  margin-top: 85px;
 }
 
 .side-bo button
@@ -224,4 +224,12 @@ body{
   padding: 0px 2px;
   background-color: transparent;
   border-radius: 10px;
+}
+
+.drop-class
+{
+  position: absolute;
+  width: 300px;
+  top: 11.5%;
+  left: 1%;
 }
