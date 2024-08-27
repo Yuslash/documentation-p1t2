@@ -5,7 +5,7 @@ const TopNav = () => {
     <div className='top-nav flex justify-between items-center w-full relative top-0 left-0'>
       <div className='flex items-center'>
         <img src='../chevron-down.png'></img>
-        <img src='../Download Files.png'></img>
+        <img src='../file.png'></img>
         <div className='mx-3'>
             <p className='text-white font-semibold'>Amazing AI Shapes</p>
             <p className='text-gray-300'>Edited 5min Ago</p>
