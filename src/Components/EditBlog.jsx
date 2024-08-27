@@ -25,6 +25,10 @@ const EditBlog = () => {
 
   }, [selectedName, blogsData])
 
+
+    /**
+     * for the save or update to the blogs.json
+     */
   const handleSave = async () => {
     const updatedPost = { name, title, content }
     // Ensure that the ID matches the one you want to edit
@@ -36,13 +40,17 @@ const EditBlog = () => {
 
   useEffect(() => {
     const textarea = document.querySelector('.paragraph')
-
+    
+    /**
+     * to auto height adjust
+     */
     const handleKeyUp = (e) => {
       textarea.style.height = 'auto' // Reset the height
       let sHeight = e.target.scrollHeight // Get scrollHeight
       textarea.style.height = `${sHeight}px` // Set new height
     }
-
+    
+    
     if (textarea) {
       textarea.addEventListener('keyup', handleKeyUp) // Add the keyup event listener
     }
