@@ -4,11 +4,11 @@ const DropdownMenu = ({ blogs = [], selectedName, onSelect }) => {
     return (
         <div className='p-4'>
             <label htmlFor='blog-select' className='block mb-2 text-white'>
-                Select User
+                User Selection
             </label>
             <select
                 id='blog-select'
-                className='w-full p-2 border rounded'
+                className='w-full p-2 border rounded bg-transparent border-transparent text-cyan-500'
                 value={selectedName}
                 onChange={(e) => onSelect(e.target.value)}
             >
