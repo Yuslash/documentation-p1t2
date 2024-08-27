@@ -2,7 +2,7 @@ import React from 'react'
 
 const DropdownMenu = ({ blogs = [], selectedName, onSelect }) => {
     return (
-        <div className='p-4'>
+        <div className='drop-class p-4'>
             <label htmlFor='blog-select' className='block mb-2 text-white'>
                 User Selection
             </label>
