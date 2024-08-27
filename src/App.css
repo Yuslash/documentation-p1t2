@@ -85,7 +85,7 @@ body{
 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   width: 350px;
   height: 100%;
