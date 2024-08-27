@@ -235,3 +235,15 @@ body{
   top: 11.5%;
   left: 1%;
 }
+
+.save-button
+{
+  width: 330px;
+  height: 52px;
+  position: absolute;
+  top: 60%;
+  left: 0%;
+  background-color: blueviolet;
+  border-radius: 10px;
+  color: white;
+}
