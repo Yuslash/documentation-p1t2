@@ -26,6 +26,30 @@ const InnerBody = () => {
     
   },[selectedName,blogsData])
 
+  useEffect(() => {
+    const textarea = document.querySelector('.paragraph')
+
+    /**
+     * to auto height adjust
+     */
+    const handleKeyUp = (e) => {
+      textarea.style.height = 'auto' // Reset the height
+      let sHeight = e.target.scrollHeight // Get scrollHeight
+      textarea.style.height = `${sHeight}px` // Set new height
+    }
+
+
+    if (textarea) {
+      textarea.addEventListener('keyup', handleKeyUp) // Add the keyup event listener
+    }
+
+    return () => {
+      if (textarea) {
+        textarea.removeEventListener('keyup', handleKeyUp) // Clean up event listener
+      }
+    }
+  }, [])
+
   return (
     <div className='inner-body'>
 
@@ -39,15 +63,16 @@ const InnerBody = () => {
       <div className='flex flex-col'>
 
         <input 
-         className=' bg-transparent details-content mt-5 text-white font-semibold text-4xl'
+         className=' p-2 bg-transparent text-white text-4xl'
          value={title}
+         onChange={(e) => setTitle(e.target.value)}
          ></input>
 
 
         <textarea 
-         className='content-detail bg-transparent mt-3 text-white text-2xl' 
+         className='paragraph p-2'
          value={content}
-         readOnly
+         onChange={(e) => setContent(e.target.value)}
          ></textarea>
 
 
