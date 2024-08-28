@@ -5,6 +5,7 @@ import EditBlog from './Components/EditBlog'
 import DropdownMenu from './Components/DropdownMenu'
 import Sammple from './Components/Sample.jsx'
 import Input from './Input'
+import Publish from './Components/Page/Publish.jsx'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/edit' element={<EditBlog />} />
           <Route path='/add' element={<Input />} />
           <Route path='/select' element={<DropdownMenu />} />
+          <Route path='/publish' element={<Publish />} />
         </Routes>
       </div>
     </Router>
