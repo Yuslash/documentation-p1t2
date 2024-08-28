@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import DisplayValue from '../../Store/DisplayValue'
+import { useDispatch } from 'react-redux'
+import blogs from '../../blogs.json'
 
-const Publish = () => {
+const Publish = () => 
+{
+
+  const firstBlog = blogs[0].name
+
+  const [blogsData, setBlogsData] = useState(blogs)
+
+  const dispatch = useDispatch()
+
+  const unpatch = () => 
+  {
+    dispatch({ type: 'SET_VALUE', payload: { firstBlog }})
+  }
+
   return (
     <div>
+    <button onClick={unpatch}>button</button>
       <h1>how are you</h1>
+      <DisplayValue />
     </div>
   )
 }
