@@ -14,7 +14,7 @@ const Publish = () =>
 
   const unpatch = () => 
   {
-    dispatch({ type: 'SET_VALUE', payload: { firstBlog }})
+    dispatch({ type: 'SET_VALUE', payload: 42})
   }
 
   return (

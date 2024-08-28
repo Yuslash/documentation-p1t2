@@ -6,11 +6,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => 
 {
-    if (action.type === 'SET_VALUE') {
-        return { ...state, value : action.payload}
-    }
-
-    return state
+    switch (action.type) {
+        case 'SET_VALUE':
+            return { ...state, value: action.payload}
+        default:
+            return state
+        }
 }
 
 const store = createStore(reducer)
