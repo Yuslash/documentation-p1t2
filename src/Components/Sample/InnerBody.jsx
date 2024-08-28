@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import axios from 'axios'
 import RichEdit from './RichEdit'
 import blogs from '../../blogs.json'
 import DropdownMenu from '../DropdownMenu'
 
-const InnerBody = () => {
 
+const InnerBody = () => {
+  
+  const counter = useRef()
+  
   const [blogsData, setBlogsData] = useState(blogs)
   const [selectedName, setSelectedName] =useState(blogs[0].name)
   const [name , setName] = useState("")
@@ -61,9 +64,7 @@ const InnerBody = () => {
       await axios.put(`http://localhost:5000/edit-post/${selectedName}`, updatePost)
       alert(`Blog Updated Successfully!`)
     }
-
-    
-
+ 
   return (
     <div className='inner-body'>
 
@@ -77,6 +78,7 @@ const InnerBody = () => {
       <div className='flex flex-col mt-5'>
 
         <input 
+          ref={counter}
          className=' p-2 bg-transparent text-white text-4xl'
          value={title}
          onChange={(e) => setTitle(e.target.value)}
