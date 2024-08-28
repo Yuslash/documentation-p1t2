@@ -14,8 +14,6 @@ const InnerBody = () => {
 
   const selectedBlog = blogsData.find(blog => blog.name === selectedName)
 
-  const checkBlog = blogs[1]
-
   useEffect(() =>
   {
      
@@ -63,6 +61,8 @@ const InnerBody = () => {
       await axios.put(`http://localhost:5000/edit-post/${selectedName}`, updatePost)
       alert(`Blog Updated Successfully!`)
     }
+
+    
 
   return (
     <div className='inner-body'>
