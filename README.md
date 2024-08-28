@@ -28,7 +28,7 @@ To get started with this project, follow the instructions below:
    ```
    npm run dev
    ```
-   Your project should now be running locally. Open your browser and go to `http://localhost:3000`.
+   Your project should now be running locally. Open your browser and go to `http://localhost:5173`.
 
 ## 📁 Project Structure
 
@@ -40,6 +40,7 @@ documentation-p1t2/
 ├── src/               # Source code
 │   ├── components/    # React components
 │   ├── pages/         # Pages of the application
+│   ├── stores/        # The Redux main store in there
 │   └── styles/        # CSS and styles
 ├── index.html         # Main HTML file
 ├── package.json       # Project metadata and dependencies
