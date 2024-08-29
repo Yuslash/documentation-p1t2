@@ -15,7 +15,6 @@ const Publish = () =>
     <div>
     <button onClick={unpatch}>button</button>
       <h1>how are you</h1>
-      <DisplayValue />
     </div>
   )
 }
