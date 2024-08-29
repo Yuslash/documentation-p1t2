@@ -1,7 +1,15 @@
 import { createStore } from 'redux'
+import blogs from '../blogs.json'
+
+const firstBlog = blogs[0].name
+const titletBlog = blogs[0].title
+const contentBlog = blogs[0].content
 
 const initialState = {
-    value : 0
+
+    name : firstBlog,
+    title : titletBlog,
+    content : contentBlog
 }
 
 const reducer = (state = initialState, action) => 
